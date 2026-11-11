@@ -1,0 +1,32 @@
+/* A small, optional readability layer. Things provides the theme. */
+body { --file-line-width: 760px; --line-height-normal: 1.65; }
+.markdown-rendered h1 { letter-spacing: -0.025em; }
+.markdown-rendered h2 { margin-top: 1.7em; }
+.markdown-rendered table { font-size: .94em; }
+.markdown-rendered .callout { border-radius: 12px; }
+.home { --file-line-width: 960px; }
+.home .markdown-rendered h1 { font-size: 2.1em; }
+.home .markdown-rendered table { width: 100%; }
+
+/* Apple Notes-style folding: show the collapse arrow beside every heading,
+   not only on hover, so sections are visibly tappable. */
+.markdown-rendered .heading-collapse-indicator,
+.markdown-source-view .cm-fold-indicator .collapse-indicator { opacity: .45 !important; }
+.markdown-rendered .heading-collapse-indicator:hover,
+.markdown-source-view .cm-fold-indicator .collapse-indicator:hover { opacity: 1 !important; }
+.markdown-rendered .is-collapsed .heading-collapse-indicator { opacity: .9 !important; }
+/* Calmer callouts: less padding, softer titles. */
+.markdown-rendered .callout { padding: 10px 14px; }
+.markdown-rendered .callout-title { font-weight: 600; }
+
+/* Badges so project chats and code sessions are obvious at a glance. */
+.project-chat .inline-title::before { content: "PROJECT"; font-size: .45em; font-weight: 700; letter-spacing: .08em; vertical-align: middle; margin-right: .6em; padding: .25em .6em; border-radius: 6px; background: rgba(47,111,237,.14); color: #2f6fed; }
+.code-session .inline-title::before { content: "CODE"; font-size: .45em; font-weight: 700; letter-spacing: .08em; vertical-align: middle; margin-right: .6em; padding: .25em .6em; border-radius: 6px; background: rgba(120,80,200,.15); color: #7850c8; }
+
+
+/* Who wrote it: [!ai] = written by an AI inside your notes; [!mine] = your own comment inside AI-written notes. */
+.callout[data-callout="ai"] { --callout-color: 130, 130, 150; --callout-icon: lucide-bot; }
+.callout[data-callout="ai"] { background-color: rgba(130,130,150,.07); border-left: 3px dashed rgba(130,130,150,.6); }
+.callout[data-callout="ai"] .callout-content { opacity: .9; }
+.callout[data-callout="mine"] { --callout-color: 222, 140, 30; --callout-icon: lucide-user-round; }
+.callout[data-callout="mine"] { background-color: rgba(222,140,30,.08); border-left: 3px solid rgba(222,140,30,.85); }

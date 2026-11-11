@@ -1,0 +1,94 @@
+filters:
+  and:
+  - file.ext == "md"
+  - example != true
+properties:
+  url:
+    displayName: Chat link
+  file.name:
+    displayName: Note
+  source:
+    displayName: From
+  about:
+    displayName: About
+views:
+- type: table
+  name: Recent chats
+  filters:
+    and:
+    - file.inFolder("sources/chats")
+    - type == "chat"
+  order:
+  - file.name
+  - url
+  - about
+  - source
+  - saved
+  sort:
+  - property: saved
+    direction: DESC
+  limit: 8
+- type: table
+  name: Waiting for review
+  filters:
+    and:
+    - file.inFolder("agent/outputs")
+    - or:
+      - type == "howto"
+      - type == "prompt"
+      - type == "idea"
+      - type == "question"
+      - type == "keeper"
+      - file.name.contains("import-candidates")
+  order:
+  - file.name
+  - type
+  - file.folder
+  sort:
+  - property: file.mtime
+    direction: DESC
+- type: table
+  name: How-tos to test
+  filters:
+    and:
+    - file.inFolder("howto")
+    - type == "howto"
+    - tested != true
+  order:
+  - file.name
+  - topics
+  - saved
+- type: table
+  name: Recently kept
+  filters:
+    and:
+    - or:
+      - file.inFolder("howto")
+      - file.inFolder("prompts")
+      - file.inFolder("keepers")
+    - or:
+      - type == "howto"
+      - type == "prompt"
+      - type == "keeper"
+  order:
+  - file.name
+  - type
+  - saved
+  sort:
+  - property: saved
+    direction: DESC
+  limit: 6
+- type: table
+  name: Marked to review
+  filters:
+    and:
+    - review == "to review"
+  order:
+  - file.name
+  - url
+  - type
+  - priority
+  - about
+  groupBy:
+    property: priority
+    direction: ASC

@@ -1,0 +1,18 @@
+filters:
+  and:
+  - file.inFolder("prompts")
+  - file.ext == "md"
+  - type == "prompt"
+  - example != true
+properties:
+  file.name:
+    displayName: Prompt
+views:
+- type: table
+  name: All prompts
+  order:
+  - file.name
+  - purpose
+  - status
+  - topics
+  - saved

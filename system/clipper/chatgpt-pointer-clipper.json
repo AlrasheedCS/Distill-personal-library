@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "0.1.0",
+  "name": "ChatGPT — pointer first",
+  "behavior": "create",
+  "noteNameFormat": "{{title}}",
+  "path": "sources/chats/chatgpt",
+  "noteContentFormat": "# {{title}}\n\n## Why saved\n\n## Summary\n\n## Decisions\n\n## Useful ideas\n\n## Next actions\n\n## Open questions\n\n## Source notes\n\n## Original chat\n[Open in ChatGPT]({{url}})",
+  "properties": [
+    {
+      "name": "type",
+      "value": "chat",
+      "type": "text"
+    },
+    {
+      "name": "source",
+      "value": "chatgpt",
+      "type": "text"
+    },
+    {
+      "name": "url",
+      "value": "{{url}}",
+      "type": "text"
+    },
+    {
+      "name": "saved",
+      "value": "{{date|date:\"YYYY-MM-DD\"}}",
+      "type": "date"
+    },
+    {
+      "name": "chatgpt_project",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "name": "pinned",
+      "value": "false",
+      "type": "checkbox"
+    },
+    {
+      "name": "status",
+      "value": "inbox",
+      "type": "text"
+    },
+    {
+      "name": "topics",
+      "value": "",
+      "type": "multitext"
+    },
+    {
+      "name": "projects",
+      "value": "",
+      "type": "multitext"
+    },
+    {
+      "name": "why_saved",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "name": "example",
+      "value": "false",
+      "type": "checkbox"
+    }
+  ],
+  "triggers": [
+    "https://chatgpt.com/",
+    "https://chat.openai.com/"
+  ]
+}

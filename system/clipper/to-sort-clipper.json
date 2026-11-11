@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "0.1.0",
+  "name": "To sort — capture",
+  "behavior": "append-specific",
+  "noteNameFormat": "to sort",
+  "path": "inbox",
+  "noteContentFormat": "- [ ] {{date|date:\"YYYY-MM-DD HH:mm\"}} · {{title}} · {{url}}\n{{selection|blockquote}}\n",
+  "properties": [],
+  "triggers": [],
+  "context": ""
+}

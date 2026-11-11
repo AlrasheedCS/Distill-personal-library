@@ -1,0 +1,16 @@
+{
+  "alwaysUpdateLinks": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "inbox",
+  "attachmentFolderPath": "system/attachments",
+  "readableLineLength": true,
+  "showLineNumber": false,
+  "spellcheck": true,
+  "defaultViewMode": "preview",
+  "livePreview": true,
+  "propertiesInDocument": "visible",
+  "useMarkdownLinks": false,
+  "promptDelete": true,
+  "foldHeading": true,
+  "foldIndent": true
+}

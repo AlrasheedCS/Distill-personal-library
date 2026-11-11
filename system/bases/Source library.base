@@ -1,0 +1,18 @@
+filters:
+  and:
+  - file.inFolder("sources")
+  - file.ext == "md"
+  - example != true
+views:
+- type: table
+  name: All sources
+  order:
+  - file.name
+  - type
+  - status
+  - saved
+  - topics
+  - url
+  groupBy:
+    property: type
+    direction: ASC

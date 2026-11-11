@@ -1,0 +1,14 @@
+# Obsidian workspace and per-device state (settings, theme and plugin settings are shipped; plugin code is not)
+.obsidian/plugins/*/*
+!.obsidian/plugins/*/data.json
+.obsidian/workspace*.json
+.obsidian/cache
+.trash/
+.smart-env/
+# Local backups and history
+agent/backups/
+*.git/
+# OS files
+.DS_Store
+Thumbs.db
+__pycache__/

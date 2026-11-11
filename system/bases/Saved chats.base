@@ -1,0 +1,298 @@
+filters:
+  and:
+  - file.inFolder("sources/chats")
+  - file.ext == "md"
+  - type == "chat"
+  - example != true
+properties:
+  url:
+    displayName: Chat link
+  file.name:
+    displayName: Chat
+  source:
+    displayName: From
+  chatgpt_project:
+    displayName: Project
+  why_saved:
+    displayName: Why saved
+  review:
+    displayName: Review
+  priority:
+    displayName: Priority
+  about:
+    displayName: About
+  main_insight:
+    displayName: Main insight
+views:
+- type: table
+  name: All chats
+  order: &id001
+  - file.name
+  - url
+  - about
+  - main_insight
+  - priority
+  - review
+  - source
+  - chatgpt_project
+  - pinned
+  - status
+  - saved
+  - topics
+  - why_saved
+- type: table
+  name: Pinned
+  order: *id001
+  filters:
+    and:
+    - pinned == true
+- type: table
+  name: By project
+  order: *id001
+  filters:
+    and:
+    - chatgpt_project != "" && chatgpt_project != null
+  groupBy:
+    property: chatgpt_project
+    direction: ASC
+- type: table
+  name: ChatGPT & Codex
+  filters:
+    and:
+    - or:
+      - source == "chatgpt"
+      - source == "codex"
+  order:
+  - file.name
+  - url
+  - about
+  - main_insight
+  - chatgpt_project
+  - pinned
+  - saved
+  sort:
+  - property: saved
+    direction: DESC
+- type: table
+  name: ChatGPT pinned
+  filters:
+    and:
+    - or:
+      - source == "chatgpt"
+      - source == "codex"
+    - pinned == true
+  order:
+  - file.name
+  - url
+  - about
+  - main_insight
+  - chatgpt_project
+  - pinned
+  - saved
+- type: table
+  name: ChatGPT by project
+  filters:
+    and:
+    - or:
+      - source == "chatgpt"
+      - source == "codex"
+    - chatgpt_project != "" && chatgpt_project != null
+  order:
+  - file.name
+  - url
+  - about
+  - main_insight
+  - chatgpt_project
+  - pinned
+  - saved
+  groupBy:
+    property: chatgpt_project
+    direction: ASC
+- type: table
+  name: Claude & Claude Code
+  filters:
+    and:
+    - or:
+      - source == "claude"
+      - source == "claude-code"
+  order:
+  - file.name
+  - url
+  - about
+  - main_insight
+  - chatgpt_project
+  - pinned
+  - saved
+  sort:
+  - property: saved
+    direction: DESC
+- type: table
+  name: Claude pinned
+  filters:
+    and:
+    - or:
+      - source == "claude"
+      - source == "claude-code"
+    - pinned == true
+  order:
+  - file.name
+  - url
+  - about
+  - main_insight
+  - chatgpt_project
+  - pinned
+  - saved
+- type: table
+  name: Claude by project
+  filters:
+    and:
+    - or:
+      - source == "claude"
+      - source == "claude-code"
+    - chatgpt_project != "" && chatgpt_project != null
+  order:
+  - file.name
+  - url
+  - about
+  - main_insight
+  - chatgpt_project
+  - pinned
+  - saved
+  groupBy:
+    property: chatgpt_project
+    direction: ASC
+- type: table
+  name: Claude regular chats
+  filters:
+    and:
+    - or:
+      - source == "claude"
+      - source == "claude-code"
+    - kind == "chat"
+  order:
+  - file.name
+  - url
+  - about
+  - main_insight
+  - chatgpt_project
+  - saved
+  sort:
+  - property: saved
+    direction: DESC
+- type: table
+  name: Claude projects
+  filters:
+    and:
+    - or:
+      - source == "claude"
+      - source == "claude-code"
+    - kind == "project"
+  order:
+  - file.name
+  - url
+  - about
+  - main_insight
+  - chatgpt_project
+  - saved
+  groupBy:
+    property: chatgpt_project
+    direction: ASC
+- type: table
+  name: Claude Code sessions
+  filters:
+    and:
+    - or:
+      - source == "claude"
+      - source == "claude-code"
+    - kind == "code"
+  order:
+  - file.name
+  - url
+  - about
+  - main_insight
+  - chatgpt_project
+  - saved
+  sort:
+  - property: saved
+    direction: DESC
+- type: table
+  name: ChatGPT regular chats
+  filters:
+    and:
+    - or:
+      - source == "chatgpt"
+      - source == "codex"
+    - kind == "chat"
+  order:
+  - file.name
+  - url
+  - about
+  - main_insight
+  - chatgpt_project
+  - saved
+  sort:
+  - property: saved
+    direction: DESC
+- type: table
+  name: ChatGPT projects
+  filters:
+    and:
+    - or:
+      - source == "chatgpt"
+      - source == "codex"
+    - kind == "project"
+  order:
+  - file.name
+  - url
+  - about
+  - main_insight
+  - chatgpt_project
+  - saved
+  groupBy:
+    property: chatgpt_project
+    direction: ASC
+- type: table
+  name: Codex sessions
+  filters:
+    and:
+    - or:
+      - source == "chatgpt"
+      - source == "codex"
+    - kind == "code"
+  order:
+  - file.name
+  - url
+  - about
+  - main_insight
+  - chatgpt_project
+  - saved
+  sort:
+  - property: saved
+    direction: DESC
+- type: table
+  name: To review
+  filters:
+    and:
+    - review == "to review"
+  order:
+  - file.name
+  - url
+  - priority
+  - about
+  - source
+  - saved
+  groupBy:
+    property: priority
+    direction: ASC
+- type: table
+  name: High priority
+  filters:
+    and:
+    - priority == "high"
+  order:
+  - file.name
+  - url
+  - review
+  - about
+  - source
+  - saved
